@@ -28,6 +28,7 @@ public class RetriveFile {
 		try {
 			// Load and Register the driver
 			Class.forName(driverClass);
+			
 			// Esstablishing the connection
 			con = DriverManager.getConnection(url, username, password);
 
@@ -42,7 +43,7 @@ public class RetriveFile {
 				// writing to file
 				clob = rs.getClob("file");
 				reader = clob.getCharacterStream();
-				String filePath = "D:\\output.txt";
+				String filePath = "D:\\Images_files\\output.txt";
 				fw = new FileWriter(filePath);
 				int i;
 				while ((i = reader.read()) != -1) {
@@ -51,8 +52,6 @@ public class RetriveFile {
 				fw.close();
 				System.out.println("File Retrived successfully");
 			}
-
-			
 
 		} catch (Exception e) {
 			System.out.println("please check the above steps" + e.getMessage());

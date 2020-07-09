@@ -26,11 +26,12 @@ public class RetriveImage {
 		try {
 			// Load and Register the driver
 			Class.forName(driverClass);
+			
 			// Esstablishing the connection
 			con = DriverManager.getConnection(url, username, password);
 			
 			// file path for retrived image
-			File file=new File("D:\\image1.png");
+			File file=new File("D:\\Images_files\\image1.png");
 			FileOutputStream fos=new FileOutputStream(file);
 			byte b[];
 			Blob blob;

@@ -24,24 +24,24 @@ public class InsertingImage {
 		try {
 			// Load and Register the driver
 			Class.forName(driverClass);
+			
 			// Establishing the connection
 			con = DriverManager.getConnection(url, username, password);
 			
 			// getting image form below path
-			//File file=new File("C:\\Users\\kbharat\\Desktop\\vid\\jdbc brief introduction_img.png");
-			File file=new File("C:\\Users\\kbharat\\Desktop\\vid\\vd.txt");
-			
+			File file=new File("C:\\Users\\kbharat\\Desktop\\vid\\jdbc brief introduction_img.png");
 			FileInputStream fis=new FileInputStream(file);
 			
 			ps=con.prepareStatement("insert into image_tbl (name,image) values(?,?)"); 
 			ps.setString(1,"image-1");
 			ps.setBinaryStream(2,fis,(int)file.length());
+			
 			int result=ps.executeUpdate();
 			
 			if(result ==0) {
-				System.out.println("Image not inserted ...please chec ");
+				System.out.println("Image not inserted ...please check ");
 			}else {
-				System.out.println("Image inderted secessfully");
+				System.out.println("Image inserted secessfully");
 			}
 			
 		}catch(Exception e) {
